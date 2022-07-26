@@ -1,0 +1,15 @@
+.content-wrapper {
+    background-color: red;
+    /*display: flex;*/
+    /*justifyContent: center;*/
+    /*alignItems: center;*/
+}
+
+.content-wrapper .search-bar {
+    width: 30%;
+    /*position: absolute;*/
+    /*top:15%;*/
+    /*left:20%;*/
+    background-color:white;
+    color:grey;
+}

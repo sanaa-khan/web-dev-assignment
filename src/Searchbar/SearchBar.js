@@ -1,9 +1,9 @@
 // imports
 import { TextField, IconButton } from '@material-ui/core';
 import { SearchOutlined } from '@material-ui/icons';
-import './Searchbar.css';
+import './SearchBar.css';
 
-function Searchbar (props) {
+function SearchBar (props) {
 
     function handleSearchChange(event) {
         props.setSearch(event.target.value)
@@ -17,7 +17,6 @@ function Searchbar (props) {
                 label="Search artist"
                 type="search"
                 variant="outlined"
-                color="black"
                 InputProps={{
                     endAdornment: (
                         <IconButton>
@@ -31,4 +30,4 @@ function Searchbar (props) {
     )
 }
 
-export default Searchbar;
+export default SearchBar;
