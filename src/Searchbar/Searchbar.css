@@ -1,0 +1,12 @@
+.content-wrapper {
+    justify-content: center;
+}
+
+.content-wrapper .search-bar {
+    position:absolute;
+    top:15%;
+    left: 20%;
+    width:30%;
+    background-color:white;
+    color:grey;
+}
