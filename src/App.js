@@ -2,6 +2,7 @@
 import {useEffect, useState} from "react";
 import axios from 'axios';
 import SearchBar from "./Searchbar/SearchBar";
+import ArtistCard from "./ArtistCard/ArtistCard";
 import './App.css';
 
 function App() {
@@ -12,31 +13,47 @@ function App() {
   useEffect(() => {
     console.log(searchTerm)
 
-    axios.get('https://rest.bandsintown.com/artists/' + searchTerm + '/?app_id=' + process.env.REACT_APP_BIT_APPID)
-        .then(res => {
-            let tempArray = []
-            if (res.data !== '') {
-                tempArray.push(res.data)
-            }
-            setArtistData(tempArray)
+      if (searchTerm === '') {
+          setArtistData([])
+      } else {
+          axios.get('https://rest.bandsintown.com/artists/' + searchTerm + '/?app_id=' + process.env.REACT_APP_BIT_APPID)
+              .then(res => {
+                  let tempArray = []
 
-            console.log(res.data)
-            console.log(artistData)
-        })
-        .catch(err => {
-            setArtistData([])
-            console.log(err)
-        })
+                  if (res.data !== '' && res.data.error !== 'Not Found') {
+                      tempArray.push(res.data)
+                  }
+
+                  setArtistData(tempArray)
+              })
+              .catch(err => {
+                  setArtistData([])
+                  console.log(err)
+              })
+      }
 
   },[searchTerm])
 
   return (
-      <div className="content-wrapper">
+      <div className="app-content-wrapper">
         <SearchBar
             setSearch={setSearchTerm}
         />
-          {artistData.length > 1 && <h3>{artistData.length} results found for "{searchTerm}"</h3> }
+          {artistData.length !== 1 && <h3>{artistData.length} results found for "{searchTerm}"</h3> }
           {artistData.length === 1 && <h3>{artistData.length} result found for "{searchTerm}"</h3> }
+
+          <div>
+              {artistData.map((artist) => (
+                  <ArtistCard
+                      key={artist.id}
+                      name={artist.name}
+                      img_url={artist.thumb_url}
+                      facebook_link={artist.facebook_page_url}
+                      events_no={artist.upcoming_event_count}
+                  />
+              ))}
+          </div>
+
       </div>
   );
 

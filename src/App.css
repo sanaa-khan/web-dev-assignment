@@ -1,3 +1,4 @@
-.content-wrapper {
+.app-content-wrapper {
     display: block;
+    background-color: brown;
 }

@@ -10,7 +10,7 @@ function SearchBar (props) {
     }
 
     return (
-        <div className="content-wrapper">
+        <div className="search-content-wrapper">
             <TextField className="search-bar"
                 fullWidth
                 id="outlined-search"
