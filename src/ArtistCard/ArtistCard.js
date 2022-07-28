@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import {ArrowForwardIos} from '@material-ui/icons';
-import {Button} from "@material-ui/core";
 import './ArtistCard.css';
 
 function ArtistCard(props) {
@@ -9,7 +8,6 @@ function ArtistCard(props) {
 
     function navigateToEventPage(event) {
         event.preventDefault()
-        console.log("clicked")
         const path = '/events'
         navigate(path, {state: {artist_name: props.name}})
     }
@@ -22,9 +20,10 @@ function ArtistCard(props) {
             />
             <h4>{props.name}</h4>
             <h5>{props.facebook_link}</h5>
-            <Button onClick={navigateToEventPage} variant="contained" endIcon={<ArrowForwardIos/>}>
-                View upcoming events
-            </Button>
+            <div onClick={navigateToEventPage}>
+                <h5>View upcoming events</h5>
+                <ArrowForwardIos/>
+            </div>
         </div>
     )
 }
