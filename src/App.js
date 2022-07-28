@@ -1,6 +1,7 @@
 // imports
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import Homepage from "./Homepage/Homepage";
+import EventsPage from "./EventsPage/EventsPage";
 import './App.css';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<Homepage />} />
+              <Route path="/events" element={<EventsPage />} />
           </Routes>
       </BrowserRouter>
   );
