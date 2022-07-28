@@ -49,7 +49,6 @@ function Homepage() {
                         name={artist.name}
                         img_url={artist.thumb_url}
                         facebook_link={artist.facebook_page_url}
-                        events_no={artist.upcoming_event_count}
                     />
                 ))}
             </div>
