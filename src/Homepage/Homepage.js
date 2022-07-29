@@ -4,14 +4,15 @@ import axios from 'axios';
 import SearchBar from "../Searchbar/SearchBar";
 import ArtistCard from "../ArtistCard/ArtistCard";
 import './Homepage.css'
+import EventsPage from "../EventsPage/EventsPage";
 
 function Homepage() {
 
     const [searchTerm, setSearchTerm] = useState("")
     const [artistData, setArtistData] = useState([])
+    const [showEventsToggle, setShowEventsToggle] = useState(false)
 
     useEffect(() => {
-        console.log(searchTerm)
 
         if (searchTerm === '') {
             setArtistData([])
@@ -34,29 +35,45 @@ function Homepage() {
 
     },[searchTerm])
 
+    function showArtist() {
+        setShowEventsToggle(false)
+    }
+
+    function showEvents() {
+        setShowEventsToggle(true)
+        console.log("show events")
+    }
+
     return (
         <div className="homepage-content-wrapper">
             <div className="homepage-container">
-                <h1 className="homepage-heading">Instantly lookup your favourite artist.</h1>
-                <SearchBar
-                    setSearch={setSearchTerm}
-                />
+                {!showEventsToggle &&
+                    <div>
+                        <h1 className="homepage-heading">Instantly lookup your favourite artists.</h1>
+                        <SearchBar setSearch={setSearchTerm}/>
 
-                <div className="homepage-results-info">
-                    {searchTerm !== '' && artistData.length !== 1 && <h3>{artistData.length} results found for "{searchTerm}"</h3> }
-                    {artistData.length === 1 && <h3>{artistData.length} result found for "{searchTerm}"</h3> }
-                </div>
+                        <div className="homepage-results-info">
+                            {searchTerm !== '' && artistData.length !== 1 && <h3>{artistData.length} results found for "{searchTerm}"</h3>}
+                            {artistData.length === 1 && <h3>{artistData.length} result found for "{searchTerm}"</h3>}
+                        </div>
 
-                <div>
-                    {artistData.map((artist) => (
-                        <ArtistCard
-                            key={artist.id}
-                            name={artist.name}
-                            img_url={artist.thumb_url}
-                            facebook_link={artist.facebook_page_url}
-                        />
-                    ))}
-                </div>
+                        <div>
+                            {artistData.map((artist) => (
+                                <ArtistCard
+                                    key={artist.id}
+                                    name={artist.name}
+                                    img_url={artist.thumb_url}
+                                    facebook_link={artist.facebook_page_url}
+                                    showEventsToggle={showEvents}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                }
+
+                {showEventsToggle &&
+                    <EventsPage artist_name={searchTerm} showArtistToggle={showArtist}/>
+                }
             </div>
         </div>
     );

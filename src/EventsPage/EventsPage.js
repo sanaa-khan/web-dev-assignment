@@ -1,12 +1,9 @@
-import {useLocation, useNavigate} from 'react-router-dom';
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-function EventsPage() {
+function EventsPage(props) {
 
-    const navigate = useNavigate();
-    const location = useLocation();
-    const artistName = location.state.artist_name;
+    const artistName = props.artist_name;
     const [artistEventData, setArtistEventData] = useState([]);
 
     useEffect(() => {
@@ -22,11 +19,6 @@ function EventsPage() {
             })
     })
 
-    function navigateToHomepage(event) {
-        event.preventDefault()
-       navigate(-1)
-    }
-
     function formatDate(date_str) {
         const date = new Date(date_str)
         const day = date.getDay().toString()
@@ -37,7 +29,7 @@ function EventsPage() {
 
     return (
         <div>
-            <h1 onClick={navigateToHomepage}>Back to results</h1>
+            <h1 onClick={props.showArtistToggle}>Back to results</h1>
             <h2>Upcoming events for {artistName}</h2>
             <div>
                 {artistEventData.map((event) => (

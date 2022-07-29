@@ -1,15 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import './ArtistCard.css';
 
 function ArtistCard(props) {
-
-    const navigate = useNavigate();
-
-    function navigateToEventPage(event) {
-        event.preventDefault()
-        const path = '/events'
-        navigate(path, {state: {artist_name: props.name}})
-    }
 
     return (
 
@@ -20,7 +11,7 @@ function ArtistCard(props) {
                 <p className="divider">|</p>
                 <a href={props.facebook_link} className="fa fa-facebook"></a>
             </div>
-            <p className="events-link" onClick={navigateToEventPage}>View upcoming events</p>
+            <p className="events-link" onClick={props.showEventsToggle}>View upcoming events</p>
         </div>
     )
 }

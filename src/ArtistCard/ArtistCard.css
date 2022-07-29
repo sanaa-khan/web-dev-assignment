@@ -39,6 +39,7 @@
 .artist-card .artist-card-img {
     width: 13em;
     height: 10em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.93);
 }
 
 .artist-card .artist-card-info {
