@@ -35,24 +35,26 @@ function Homepage() {
     },[searchTerm])
 
     return (
-        <div className="app-content-wrapper">
-            <SearchBar
-                setSearch={setSearchTerm}
-            />
-            {artistData.length !== 1 && <h3>{artistData.length} results found for "{searchTerm}"</h3> }
-            {artistData.length === 1 && <h3>{artistData.length} result found for "{searchTerm}"</h3> }
+        <div className="homepage-content-wrapper">
+            <div className="homepage-container">
+                <h1>Instantly find an artist and their events!</h1>
+                <SearchBar
+                    setSearch={setSearchTerm}
+                />
+                {searchTerm !== '' && artistData.length !== 1 && <h3>{artistData.length} results found for "{searchTerm}"</h3> }
+                {artistData.length === 1 && <h3>{artistData.length} result found for "{searchTerm}"</h3> }
 
-            <div>
-                {artistData.map((artist) => (
-                    <ArtistCard
-                        key={artist.id}
-                        name={artist.name}
-                        img_url={artist.thumb_url}
-                        facebook_link={artist.facebook_page_url}
-                    />
-                ))}
+                <div>
+                    {artistData.map((artist) => (
+                        <ArtistCard
+                            key={artist.id}
+                            name={artist.name}
+                            img_url={artist.thumb_url}
+                            facebook_link={artist.facebook_page_url}
+                        />
+                    ))}
+                </div>
             </div>
-
         </div>
     );
 }
