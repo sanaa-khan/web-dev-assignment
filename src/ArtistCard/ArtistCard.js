@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import {ArrowForwardIos} from '@material-ui/icons';
 import './ArtistCard.css';
 
 function ArtistCard(props) {
@@ -13,17 +12,15 @@ function ArtistCard(props) {
     }
 
     return (
-        <div className="artist-card-content-wrapper">
-            <img
-                src={props.img_url}
-                alt="artist image"
-            />
-            <h4>{props.name}</h4>
-            <h5>{props.facebook_link}</h5>
-            <div onClick={navigateToEventPage}>
-                <h5>View upcoming events</h5>
-                <ArrowForwardIos/>
+
+        <div className="artist-card">
+            <img className="artist-card-img" src={props.img_url} alt="Artist" />
+            <div className="artist-card-info">
+                <p className="artist-name">{props.name}</p>
+                <p className="divider">|</p>
+                <a href={props.facebook_link} className="fa fa-facebook"></a>
             </div>
+            <p className="events-link" onClick={navigateToEventPage}>View upcoming events</p>
         </div>
     )
 }

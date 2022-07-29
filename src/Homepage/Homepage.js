@@ -37,12 +37,15 @@ function Homepage() {
     return (
         <div className="homepage-content-wrapper">
             <div className="homepage-container">
-                <h1>Instantly find an artist and their events!</h1>
+                <h1 className="homepage-heading">Instantly lookup your favourite artist.</h1>
                 <SearchBar
                     setSearch={setSearchTerm}
                 />
-                {searchTerm !== '' && artistData.length !== 1 && <h3>{artistData.length} results found for "{searchTerm}"</h3> }
-                {artistData.length === 1 && <h3>{artistData.length} result found for "{searchTerm}"</h3> }
+
+                <div className="homepage-results-info">
+                    {searchTerm !== '' && artistData.length !== 1 && <h3>{artistData.length} results found for "{searchTerm}"</h3> }
+                    {artistData.length === 1 && <h3>{artistData.length} result found for "{searchTerm}"</h3> }
+                </div>
 
                 <div>
                     {artistData.map((artist) => (

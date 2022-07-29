@@ -1,8 +1,6 @@
 import {useLocation, useNavigate} from 'react-router-dom';
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {Grid} from "@material-ui/core";
-import ArtistCard from "../ArtistCard/ArtistCard";
 
 function EventsPage() {
 
@@ -22,7 +20,7 @@ function EventsPage() {
                 setArtistEventData([])
                 console.log(err)
             })
-    },[])
+    })
 
     function navigateToHomepage(event) {
         event.preventDefault()
