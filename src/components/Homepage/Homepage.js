@@ -30,6 +30,7 @@ function Homepage() {
 
     // this will run everytime value of searchTerm is updated
     useEffect(() => {
+        localStorage.setItem('searchedArtistName', searchTerm)
 
         // do nothing if empty search
         if (searchTerm === '') {
@@ -49,8 +50,6 @@ function Homepage() {
                     }
 
                     setArtistData(tempArray)
-                    localStorage.setItem('searchedArtistName', searchTerm)
-                    console.log(localStorage.getItem('searchedArtistName'))
                 })
                 .catch(err => {
                     setArtistData([])
