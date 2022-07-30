@@ -51,3 +51,7 @@ so the child components do not interact with each other directly.
 
 For example, the SearchBar has the artist name to be searched. Instead of passing this to ArtistCard or EventsPage directly, it is sent to Homepage (parent component) instead.
 Homepage will pass it on to ArtistCard/EventsPage when needed.
+
+### Component Tree
+
+![tree](https://imgur.com/YsyR2Pz)
