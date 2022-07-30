@@ -40,6 +40,10 @@ describe("Homepage Component Test", () => {
     expect(wrapper.containsMatchingElement(<SearchBar />)).toEqual(true);
   });
 
+  it("Renders ArtistCard Component on Search", () => {
+    const wrapper = mount(<Homepage />);
+    const searchbar = wrapper.find(SearchBar);
+  });
 
 })
 
