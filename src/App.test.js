@@ -21,11 +21,9 @@ describe("Searchbar Component Test", () => {
     const setSearch = jest.fn((value) => {})
 
     const { queryByLabelText } = render(<SearchBar setSearch={setSearch}/>)
-
     const searchInput = queryByLabelText('Search artist')
 
     fireEvent.change(searchInput, { target: { value: 'test' } })
-
     expect(searchInput.value).toBe('test')
   });
 })

@@ -33,3 +33,21 @@ Website has been deployed on [Netlify](https://www.netlify.com/) by:
 ### [Click here to view my deployed website!](https://62e56adbc9d37433b6ac8c94--glowing-cobbler-afd359.netlify.app/)
 
 ## Website Architecture
+
+The overall website has been divided into two main components:
+- App: the base component that is the project container
+- Homepage: defines the website layout, shows searchbar, artists and events
+
+For more modularity, the Homepage component is just a container (which facilitates data transfer) for:
+- SearchBar: renders a search bar, passes value to parent component
+- ArtistCard: takes props from parent component, renders a card displaying artist info passed in props
+- EventsPage: displays events for selected artist
+
+The three components mentioned above are rendered conditionally in the Homepage container. Either search bar + artist search result is displayed, or events for the selected artists.
+This conditional render in Homepage component allows for a more consistent website experience and enables us to load different components as per the need without using routing.
+
+So components are logically divided as per their required functionality and there is a low level of inter-dependence among them. Additionally, the main parent component (Homepage) deals with all the data, which is transferred to and from child components -
+so the child components do not interact with each other directly.
+
+For example, the SearchBar has the artist name to be searched. Instead of passing this to ArtistCard or EventsPage directly, it is sent to Homepage (parent component) instead.
+Homepage will pass it on to ArtistCard/EventsPage when needed.
