@@ -25,7 +25,7 @@
 
 /* Column headers of every table-card */
 .events-table tr td h4 {
-    margin-top: 5px;
+    margin-top: 10px;
     padding: 0;
 }
 

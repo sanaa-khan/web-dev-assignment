@@ -16,7 +16,6 @@ function EventsPage(props) {
         axios.get('https://rest.bandsintown.com/artists/'+ artistName + '/events?app_id=' + process.env.REACT_APP_BIT_APPID)
             .then(res => {
                 setArtistEventData(res.data)
-                console.log(artistEventData)
             })
             .catch(err => {
                 setArtistEventData([])
