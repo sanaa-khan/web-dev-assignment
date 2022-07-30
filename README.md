@@ -54,4 +54,5 @@ Homepage will pass it on to ArtistCard/EventsPage when needed.
 
 ### Component Tree
 
+
 ![tree](https://github.com/sanaa-khan/web-dev-assignment/blob/master/public/tree.PNG)
