@@ -1,32 +1,3 @@
-.artist-card-content-wrapper {
-    width: 15em;
-    float: left;
-    background-color: cornsilk;
-    position: relative;
-    margin:10px auto; /* center this puupy */
-    border:1px solid grey; /* see the edges */
-}
-
-.artist-card-content-wrapper img {
-    border-radius: 50%;
-    height: 5em;
-    width: 5em;
-    margin-top: 2em;
-}
-
-.artist-card-content-wrapper img, .artist-card-content-wrapper h4 {
-    display:inline-block;
-    vertical-align:middle;
-}
-
-.artist-card-content-wrapper h4 {
-    margin-left: 1em;
-}
-
-.artist-card-content-wrapper h5 {
-    margin-left:8em;
-}
-
 .artist-card {
     border: 1px solid rgba(255, 255, 255, 0.93);
     width: 13em;
@@ -68,7 +39,7 @@
 }
 
 .artist-card .events-link:hover {
-    cursor: grabbing;
+    cursor: pointer;
     color: rebeccapurple;
 }
 

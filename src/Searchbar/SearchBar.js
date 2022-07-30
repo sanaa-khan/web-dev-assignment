@@ -17,6 +17,7 @@ function SearchBar (props) {
                 label="Search artist"
                 type="search"
                 variant="outlined"
+                value={props.searchTerm === '' ? '' : props.searchTerm}
                 InputProps={{
                     endAdornment: (
                         <IconButton>

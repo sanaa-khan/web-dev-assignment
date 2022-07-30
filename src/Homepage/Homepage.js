@@ -47,10 +47,11 @@ function Homepage() {
     return (
         <div className="homepage-content-wrapper">
             <div className="homepage-container">
+
                 {!showEventsToggle &&
                     <div>
                         <h1 className="homepage-heading">Instantly lookup your favourite artists.</h1>
-                        <SearchBar setSearch={setSearchTerm}/>
+                        <SearchBar setSearch={setSearchTerm} searchTerm={searchTerm}/>
 
                         <div className="homepage-results-info">
                             {searchTerm !== '' && artistData.length !== 1 && <h3>{artistData.length} results found for "{searchTerm}"</h3>}
@@ -72,7 +73,9 @@ function Homepage() {
                 }
 
                 {showEventsToggle &&
-                    <EventsPage artist_name={searchTerm} showArtistToggle={showArtist}/>
+                    <div>
+                        <EventsPage artist_name={searchTerm} showArtistToggle={showArtist}/>
+                    </div>
                 }
             </div>
         </div>

@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import './EventsPage.css';
 
 function EventsPage(props) {
 
@@ -7,6 +8,7 @@ function EventsPage(props) {
     const [artistEventData, setArtistEventData] = useState([]);
 
     useEffect(() => {
+        document.title = 'Events for ' + artistName;
 
         axios.get('https://rest.bandsintown.com/artists/'+ artistName + '/events?app_id=' + process.env.REACT_APP_BIT_APPID)
             .then(res => {
@@ -29,31 +31,30 @@ function EventsPage(props) {
 
     return (
         <div>
-            <h1 onClick={props.showArtistToggle}>Back to results</h1>
-            <h2>Upcoming events for {artistName}</h2>
-            <div>
+            <h2 className="events-page-return-link" onClick={props.showArtistToggle}><i className="fa fa-angle-left"></i> Back to results</h2>
+            <div className="events-table-container">
                 {artistEventData.map((event) => (
-                    <table key={event.url}>
+                    <table className="events-table" key={event.url}>
                         <tr>
                             <th colSpan="2">Event Details</th>
                         </tr>
                         <tr>
                             <td>
-                                <p>Country</p>
+                                <h4>Country</h4>
                                 <p>{event.venue.country}</p>
                             </td>
                             <td>
-                                <p>City</p>
+                                <h4>City</h4>
                                 <p>{event.venue.city}</p>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <p>Venue</p>
+                                <h4>Venue</h4>
                                 <p>{event.venue.name}</p>
                             </td>
                             <td>
-                                <p>Date</p>
+                                <h4>Date</h4>
                                 <p>{formatDate(event.starts_at)}</p>
                             </td>
                         </tr>
