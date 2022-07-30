@@ -1,3 +1,4 @@
+// imports
 import {useEffect, useState} from "react";
 import axios from "axios";
 import './EventsPage.css';
@@ -8,8 +9,10 @@ function EventsPage(props) {
     const [artistEventData, setArtistEventData] = useState([]);
 
     useEffect(() => {
+        // set title to reflect chosen artist name
         document.title = 'Events for ' + artistName;
 
+        // fetch data from API (will always return array of events or empty array)
         axios.get('https://rest.bandsintown.com/artists/'+ artistName + '/events?app_id=' + process.env.REACT_APP_BIT_APPID)
             .then(res => {
                 setArtistEventData(res.data)
@@ -21,6 +24,7 @@ function EventsPage(props) {
             })
     })
 
+    // utility function to return formatted text representation of a date string
     function formatDate(date_str) {
         const date = new Date(date_str)
         const day = date.getDay().toString()
@@ -31,11 +35,16 @@ function EventsPage(props) {
 
     return (
         <div>
-            <h2 className="events-page-return-link" onClick={props.showArtistToggle}><i className="fa fa-angle-left"></i> Back to results</h2>
+            {/* Display back icon and link for turning events toggle off in parent component (homepage) */}
+            <h2 className="events-page-return-link" onClick={props.showArtistToggle}>
+                <i className="fa fa-angle-left"></i> Back to results
+            </h2>
             <div className="events-table-container">
 
+                {/* Info alert in case of no events */}
                 {artistEventData.length === 0 && <h2 className="no-events-heading">No events scheduled yet.</h2>}
 
+                {/* For every event, display a table-card with event details */}
                 {artistEventData.map((event) => (
                     <table className="events-table" key={event.url}>
                         <tr>

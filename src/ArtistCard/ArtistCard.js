@@ -1,3 +1,4 @@
+// imports
 import './ArtistCard.css';
 
 function ArtistCard(props) {

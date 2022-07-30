@@ -3,26 +3,36 @@ import {useEffect, useState} from "react";
 import axios from 'axios';
 import SearchBar from "../Searchbar/SearchBar";
 import ArtistCard from "../ArtistCard/ArtistCard";
-import './Homepage.css'
 import EventsPage from "../EventsPage/EventsPage";
+import './Homepage.css'
 
 function Homepage() {
 
+    // set document title everytime component loads
     document.title = 'Search Artists'
 
+    // state variables
     const [searchTerm, setSearchTerm] = useState("")
     const [artistData, setArtistData] = useState([])
+
+    // toggle to switch between showing searchbar + artist or events
     const [showEventsToggle, setShowEventsToggle] = useState(false)
 
     useEffect(() => {
 
+        // do nothing if empty search
         if (searchTerm === '') {
             setArtistData([])
         } else {
+            // fetch data from API
             axios.get('https://rest.bandsintown.com/artists/' + searchTerm + '/?app_id=' + process.env.REACT_APP_BIT_APPID)
                 .then(res => {
+                    // note that API typically returns one result only matching artist name to search term exactly
+                    // but case of multiple results handled as well by having an array for artist data
+
                     let tempArray = []
 
+                    // push if data not empty and no error
                     if (res.data !== '' && res.data.error !== 'Not Found') {
                         tempArray.push(res.data)
                     }
@@ -37,10 +47,12 @@ function Homepage() {
 
     },[searchTerm])
 
+    // switch off toggle, show search + artist
     function showArtist() {
         setShowEventsToggle(false)
     }
 
+    // switch on toggle, show events
     function showEvents() {
         setShowEventsToggle(true)
         console.log("show events")
@@ -50,6 +62,7 @@ function Homepage() {
         <div className="homepage-content-wrapper">
             <div className="homepage-container">
 
+                {/* Toggle is off by default, display searchbar and search results */}
                 {!showEventsToggle &&
                     <div>
                         <h1 className="homepage-heading">Instantly lookup your favourite artists.</h1>
@@ -60,6 +73,7 @@ function Homepage() {
                             {artistData.length === 1 && <h3>{artistData.length} result found for "{searchTerm}"</h3>}
                         </div>
 
+                        {/* Dynamically display card for every artist found */}
                         <div>
                             {artistData.map((artist) => (
                                 <ArtistCard
@@ -74,6 +88,7 @@ function Homepage() {
                     </div>
                 }
 
+                {/* Toggle is on, display events and pass function to turn off toggle */}
                 {showEventsToggle &&
                     <div>
                         <EventsPage artist_name={searchTerm} showArtistToggle={showArtist}/>

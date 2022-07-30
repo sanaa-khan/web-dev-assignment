@@ -5,6 +5,7 @@ import './SearchBar.css';
 
 function SearchBar (props) {
 
+    // pass search term to parent component (homepage)
     function handleSearchChange(event) {
         props.setSearch(event.target.value)
     }

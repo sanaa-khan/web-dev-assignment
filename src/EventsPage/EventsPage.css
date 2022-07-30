@@ -1,6 +1,3 @@
-.events-page-return-link {
-}
-
 .events-page-return-link:hover {
     cursor: pointer;
     color: rebeccapurple;
@@ -17,8 +14,8 @@
 
 .events-table {
     border: 1px solid rgba(255, 255, 255, 0.93);
-    width: 16em;
     border-radius: 16px;
+    width: 16em;
     background-color: rgba(255,255,255,0.7);
     margin-bottom: 20px;
     text-align: left;
@@ -26,11 +23,13 @@
     padding-right: 7px;
 }
 
+/* Column headers of every table-card */
 .events-table tr td h4 {
     margin-top: 5px;
     padding: 0;
 }
 
+/* Main heading of every table-card */
 .events-table th {
     letter-spacing: 1.2px;
     font-weight: bold;
@@ -41,12 +40,14 @@
     padding-top: 10px;
 }
 
+/* Display less tables for smaller screen */
 @media screen and (max-width: 840px) {
     .events-table-container {
         grid-template-columns: 1fr 1fr;
     }
 }
 
+/* For mobile, display just one table/event per row */
 @media screen and (max-width: 580px) {
     .events-table-container {
         grid-template-columns: 1fr;

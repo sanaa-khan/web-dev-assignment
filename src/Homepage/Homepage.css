@@ -42,6 +42,8 @@
     margin-top: 35px;
 }
 
+/*Scrollbar CSS*/
+
 /* width */
 ::-webkit-scrollbar {
     width: 8px;
