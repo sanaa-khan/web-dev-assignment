@@ -33,6 +33,9 @@ function EventsPage(props) {
         <div>
             <h2 className="events-page-return-link" onClick={props.showArtistToggle}><i className="fa fa-angle-left"></i> Back to results</h2>
             <div className="events-table-container">
+
+                {artistEventData.length === 0 && <h2 className="no-events-heading">No events scheduled yet.</h2>}
+
                 {artistEventData.map((event) => (
                     <table className="events-table" key={event.url}>
                         <tr>

@@ -8,6 +8,8 @@ import EventsPage from "../EventsPage/EventsPage";
 
 function Homepage() {
 
+    document.title = 'Search Artists'
+
     const [searchTerm, setSearchTerm] = useState("")
     const [artistData, setArtistData] = useState([])
     const [showEventsToggle, setShowEventsToggle] = useState(false)
