@@ -18,6 +18,17 @@ function Homepage() {
     // toggle to switch between showing searchbar + artist or events
     const [showEventsToggle, setShowEventsToggle] = useState(false)
 
+    // this will run once only on initial render
+    useEffect( () => {
+        const localStorageSearchTerm = localStorage.getItem('searchedArtistName')
+
+        // check if search data was saved
+        if (localStorageSearchTerm) {
+            setSearchTerm(localStorageSearchTerm)
+        }
+    }, [])
+
+    // this will run everytime value of searchTerm is updated
     useEffect(() => {
 
         // do nothing if empty search
@@ -38,6 +49,8 @@ function Homepage() {
                     }
 
                     setArtistData(tempArray)
+                    localStorage.setItem('searchedArtistName', searchTerm)
+                    console.log(localStorage.getItem('searchedArtistName'))
                 })
                 .catch(err => {
                     setArtistData([])
