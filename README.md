@@ -1,8 +1,5 @@
 # Website Guide
 
-![homepage](https://github.com/sanaa-khan/web-dev-assignment/blob/master/Demo%20Video%20%26%20Screenshots/Screenshots/Search%20Artist.PNG)
-![events](https://github.com/sanaa-khan/web-dev-assignment/blob/master/Demo%20Video%20%26%20Screenshots/Screenshots/View%20Events.PNG)
-
 ## Requirements
 
 Node.js v16.13.0
@@ -71,3 +68,14 @@ terminal in project directory and running `npm run test`.
 - Create-React-App to bootstrap project
 - Postman for testing API 
 - Netlify for deployment
+
+## Screenshots
+
+All screenshots and demo video are included in "Demo Videos & Screenshots" folder. <hr><br>
+
+### Homepage
+![homepage](https://github.com/sanaa-khan/web-dev-assignment/blob/master/Demo%20Video%20%26%20Screenshots/Screenshots/Search%20Artist.PNG)
+
+### Artist Events
+![events](https://github.com/sanaa-khan/web-dev-assignment/blob/master/Demo%20Video%20%26%20Screenshots/Screenshots/View%20Events.PNG)
+
