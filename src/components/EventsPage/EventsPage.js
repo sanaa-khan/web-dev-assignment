@@ -8,9 +8,10 @@ function EventsPage(props) {
     const artistName = props.artist_name;
     const [artistEventData, setArtistEventData] = useState([]);
 
+    // set title to reflect chosen artist name
+    document.title = 'Events for ' + artistName;
+
     useEffect(() => {
-        // set title to reflect chosen artist name
-        document.title = 'Events for ' + artistName;
 
         // fetch data from API (will always return array of events or empty array)
         axios.get('https://rest.bandsintown.com/artists/'+ artistName + '/events?app_id=' + process.env.REACT_APP_BIT_APPID)

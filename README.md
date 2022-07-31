@@ -56,3 +56,14 @@ Homepage will pass it on to ArtistCard/EventsPage when needed.
 
 
 ![tree](https://github.com/sanaa-khan/web-dev-assignment/blob/master/public/tree.PNG)
+
+## Tests
+
+Tests were written using Jest library, in the file App.test.js. They can be executed by opening
+terminal in project directory and running `npm run test`.
+
+## Tools Used
+
+- WebStorm IDE for development
+- Postman for testing API 
+- Netlify for deployment
