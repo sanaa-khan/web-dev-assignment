@@ -1,5 +1,8 @@
 # Website Guide
 
+![homepage](https://github.com/sanaa-khan/web-dev-assignment/blob/master/Demo%20Video%20%26%20Screenshots/Screenshots/Search%20Artist.PNG)
+![events](https://github.com/sanaa-khan/web-dev-assignment/blob/master/Demo%20Video%20%26%20Screenshots/Screenshots/View%20Events.PNG)
+
 ## Requirements
 
 Node.js v16.13.0
