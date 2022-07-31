@@ -35,17 +35,17 @@ function EventsPage(props) {
     return (
         <div>
             {/* Display back icon and link for turning events toggle off in parent component (homepage) */}
-            <h2 className="events-page-return-link" onClick={props.showArtistToggle}>
+            <h2 className="events-page-return-link" data-testid="artists-link" onClick={props.showArtistToggle}>
                 <i className="fa fa-angle-left"></i> Back to results
             </h2>
             <div className="events-table-container">
 
                 {/* Info alert in case of no events */}
-                {artistEventData.length === 0 && <h2 className="no-events-heading">No events scheduled yet.</h2>}
+                {artistEventData.length === 0 && <h2 className="no-events-heading" data-testid="no-events-heading">No events scheduled yet.</h2>}
 
                 {/* For every event, display a table-card with event details */}
                 {artistEventData.map((event) => (
-                    <table className="events-table" key={event.url}>
+                    <table className="events-table" data-testid="events-table" key={event.url}>
                         <tr>
                             <th colSpan="2">Event Details</th>
                         </tr>

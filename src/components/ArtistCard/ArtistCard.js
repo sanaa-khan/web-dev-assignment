@@ -12,7 +12,7 @@ function ArtistCard(props) {
                 <p className="divider">|</p>
                 <a href={props.facebook_link} className="fa fa-facebook"></a>
             </div>
-            <p className="events-link" onClick={props.showEventsToggle}>View upcoming events</p>
+            <p className="events-link" data-testid="events-link" onClick={props.showEventsToggle}>View upcoming events</p>
         </div>
     )
 }
