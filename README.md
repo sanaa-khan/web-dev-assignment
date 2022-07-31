@@ -30,7 +30,7 @@ Website has been deployed on [Netlify](https://www.netlify.com/) by:
     - In Environment, set variables "NPM_FLAGS" = "--force" and "REACT_APP_BIT_APPID" = < your API id >
 - Go back to project and select 'Clear cache and Deploy'
 
-### [Click here to view my deployed website!](https://62e5a322e8e9f55c13cf1d9d--glowing-cobbler-afd359.netlify.app/)
+### [Click here to view my deployed website!](https://62e67079051ac74f61ee1b0a--glowing-cobbler-afd359.netlify.app/)
 
 ## Website Architecture
 
