@@ -71,7 +71,7 @@ terminal in project directory and running `npm run test`.
 
 ## Screenshots
 
-All screenshots and demo video are included in "Demo Videos & Screenshots" folder. <hr><br>
+All screenshots and demo video are included in "Demo Videos & Screenshots" folder. <hr>
 
 ### Homepage
 ![homepage](https://github.com/sanaa-khan/web-dev-assignment/blob/master/Demo%20Video%20%26%20Screenshots/Screenshots/Search%20Artist.PNG)
