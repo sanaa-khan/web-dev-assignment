@@ -52,11 +52,11 @@ function EventsPage(props) {
                         </tr>
                         <tr>
                             <td>
-                                <h4>Country</h4>
+                                <h4 className="second-row-header">Country</h4>
                                 <p>{event.venue.country}</p>
                             </td>
                             <td>
-                                <h4>City</h4>
+                                <h4 className="second-row-header">City</h4>
                                 <p>{event.venue.city}</p>
                             </td>
                         </tr>
@@ -70,6 +70,26 @@ function EventsPage(props) {
                                 <p>{formatDate(event.starts_at)}</p>
                             </td>
                         </tr>
+                        {/* Display ticket link if available */}
+                        {event.offers[0].status.toLowerCase() === 'available' ?
+                            <tr>
+                                <td className="events-tickets-cell" colSpan="2">
+                                    <a className="events-tickets-link" href={event.offers[0].url}>
+                                        Tickets available!
+                                        <i id="link-icon" className="fa fa-external-link" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            // Else display not available
+                            :
+                            <tr>
+                                <td className="events-tickets-cell" colSpan="2">
+                                    <p className="events-tickets-link">
+                                        Tickets not available.
+                                    </p>
+                                </td>
+                            </tr>
+                        }
                     </table>
                 ))}
             </div>

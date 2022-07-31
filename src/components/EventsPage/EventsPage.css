@@ -1,3 +1,8 @@
+* {
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
 .events-page-return-link:hover {
     cursor: pointer;
     color: rebeccapurple;
@@ -25,8 +30,18 @@
 
 /* Column headers of every table-card */
 .events-table tr td h4 {
-    margin-top: 10px;
+    margin-top: -10px;
     padding: 0;
+}
+
+/* Second row colum headers */
+.events-table tr td .second-row-header {
+    margin-top: 10px;
+}
+
+/* Column data */
+.events-table tr td p {
+    margin-top: -20px;
 }
 
 /* Main heading of every table-card */
@@ -38,6 +53,41 @@
     padding-bottom: 5px;
     border-bottom: 1px solid black;
     padding-top: 10px;
+}
+
+/* Link for event tickers */
+.events-table .events-tickets-cell {
+    text-align: center;
+}
+
+.events-table .events-tickets-link {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    background-color: rebeccapurple;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: fit-content;
+    text-align: center;
+    display: inline-block;
+
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.events-table .events-tickets-link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.events-table .events-tickets-link #link-icon {
+    font-size: 12px;
+    padding-left: 10px;
 }
 
 /* Display less tables for smaller screen */

@@ -65,5 +65,6 @@ terminal in project directory and running `npm run test`.
 ## Tools Used
 
 - WebStorm IDE for development
+- Create-React-App to bootstrap project
 - Postman for testing API 
 - Netlify for deployment
